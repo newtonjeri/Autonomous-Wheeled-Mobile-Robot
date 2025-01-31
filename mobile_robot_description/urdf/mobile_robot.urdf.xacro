@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mobile_robot">
+    
+<xacro:property name="PI" value="3.14159265359">
+
+</xacro:property>
+<xacro:include filename="$(find mobile_robot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find mobile_robot_description)/urdf/mobile_robot.xacro" />
+<!-- <xacro:include filename="$(find mobile_robot_description)/urdf/mobile_robot.ros2_control.xacro" /> -->
+
+<link name="sim_world"/>
+
+<joint name="world_joint" type="fixed">
+    <parent link="sim_world"/>
+    <child link="base_link"/>
+    <origin xyz="0.0 0.0 0.0" rpy="${PI/2} 0.0 0.0"/>
+</joint>
+
+</robot>
